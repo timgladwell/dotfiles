@@ -1,0 +1,25 @@
+{
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "workbench.editor.enablePreview": false,
+  "diffEditor.renderSideBySide": false,
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "none",
+  "workbench.colorTheme": "Default High Contrast",
+  "extensions.ignoreRecommendations": false,
+  "editor.renderControlCharacters": true,
+  "editor.rulers": [120],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#212121"
+  },
+  "solargraph.commandPath": "/Users/tim.gladwell/.gem/ruby/2.7.2/bin/solargraph",
+  "solargraph.bundlerPath": "/Users/tim.gladwell/.gem/ruby/2.7.2/bin/bundle",
+  "solargraph.logLevel": "debug",
+  "workbench.editorAssociations": {
+    "*.csv": "default"
+  },
+  "solargraph.rename": false,
+  "byesig.opacity": 0.8,
+  "editor.bracketPairColorization.enabled": true,
+}
