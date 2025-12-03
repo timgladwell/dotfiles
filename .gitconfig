@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Tim Gladwell
+	email = tim.gladwell@gmail.com
+[core]
+	editor = code --wait
+[credential]
+	helper = store
