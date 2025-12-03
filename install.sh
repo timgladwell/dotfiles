@@ -4,19 +4,16 @@
 DOTFILES="$HOME/.dotfiles"
 
 # List of files to symlink
-files=".zshrc .gitconfig"
+files=".zshrc .gitconfig .oh-my-zsh/custom"
 
 # Create symlinks
 for file in $files; do
-    if [ -f "$HOME/$file" ]; then
+    if [ -f "$HOME/$file" -o -d "$HOME/$file" ]; then
         echo "Backing up existing $file"
         mv "$HOME/$file" "$HOME/${file}.backup"
     fi
     echo "Creating symlink for $file"
     ln -sf "$DOTFILES/$file" "$HOME/$file"
 done
-
-# Oh My Zsh customization
-ln -sf "$DOTFILES/oh-my-zsh/custom/* ~/.oh-my-zsh/custom/
 
 echo "Dotfiles installed!"
