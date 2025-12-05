@@ -73,8 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+
 
 # User configuration
 
@@ -105,4 +104,11 @@ source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# TODO - split this into OS-conditional and deployment-conditional steps
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
