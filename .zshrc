@@ -74,6 +74,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+PROMPT=' 📅 %F{12}$(TZ=UTC date "+%Y-%m-%d %H:%M:%S UTC")%f 🤷 %F{green}%n%f ⚙️ %F{yellow}%m%f 🗂️ %{$fg[cyan]%}%~%{$reset_color%}
+'"$PROMPT"
 
 # User configuration
 
