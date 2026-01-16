@@ -110,7 +110,9 @@ PROMPT=' 📅 %F{12}$(TZ=UTC date "+%Y-%m-%d %H:%M:%S UTC")%f 🤷 %F{green}%n%f
 
 eval "$(brew shellenv)"
 
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+if (( $+commands[chruby] )); then
+    source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+    source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+fi
 
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
