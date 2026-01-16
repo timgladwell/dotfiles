@@ -92,7 +92,8 @@ for pair in "${filepath_pairs[@]}"; do
         fi
         
         echo -e "${YELLOW}  ⚠ Target already exists: $target_path${NC}"
-        read -p "    Overwrite? (y/n) " -n 1 -r
+        echo -n "    Overwrite? (y/n) "
+        read -r REPLY
         echo ""
         
         if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -105,8 +106,8 @@ for pair in "${filepath_pairs[@]}"; do
         fi
     fi
     
-    # Create the symlink
-    ln -sf "$source_path" "$target_path"
+    # Create the symlink (without -f since we handle existing files above)
+    ln -s "$source_path" "$target_path"
     echo -e "${GREEN}  ✓ Created symlink${NC}"
     echo ""
 done
