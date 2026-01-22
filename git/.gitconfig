@@ -6,4 +6,4 @@
 [core]
 	editor = code --wait
 [credential]
-	helper = store
+	helper = cache
