@@ -106,7 +106,8 @@ PROMPT=' 📅 %F{12}$(TZ=UTC date "+%Y-%m-%d %H:%M:%S UTC")%f 🤷 %F{green}%n%f
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# TODO - split this into OS-conditional and deployment-conditional steps
+# For Claude Code
+export PATH="$HOME/.local/bin:$PATH"
 
 if (( $+commands[brew] )); then
     eval "$(brew shellenv)"
