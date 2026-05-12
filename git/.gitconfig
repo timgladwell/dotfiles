@@ -4,6 +4,6 @@
 	name = Tim Gladwell
 	email = tim.gladwell@gmail.com
 [core]
-	editor = command -v nano >/dev/null && nano || vim
+	editor = nano
 [credential]
 	helper = cache
