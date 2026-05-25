@@ -25,4 +25,8 @@ if (( $+commands[flux] )); then
     . <(flux completion zsh)
 fi
 
+if (( $+commands[go] )); then
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
+
 [ -f /etc/rancher/k3s/k3s.yaml ] && export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
