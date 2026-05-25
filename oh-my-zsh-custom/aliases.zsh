@@ -1,3 +1,3 @@
 #!/usr/bin/env zsh
 
-alias ls='ls -lah --color'
+alias ls='ls -lah --color=auto'
