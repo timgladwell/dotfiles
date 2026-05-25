@@ -4,6 +4,9 @@
 .LSOverride
 ._*
 
+# Tools
+.claude
+
 # Editor
 .vscode/
 .idea/
