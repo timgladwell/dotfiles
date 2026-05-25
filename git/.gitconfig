@@ -3,16 +3,24 @@
 [user]
 	name = Tim Gladwell
 	email = tim.gladwell@gmail.com
-	signingkey = /Users/tim/.ssh/id_ed25519_sk.pub
 [core]
 	editor = nano
+	excludesfile = ~/.gitignore_global
 [credential]
 	helper = cache
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
-[tag]
-	gpgsign = true
-[gpg "ssh"]
-	allowedSignersFile = /Users/tim/.ssh/allowed_signers
+
+# Machine-specific overrides (signing keys, etc.) go in ~/.gitconfig_local (not tracked).
+# Create this file manually on each machine. MacBook example:
+#
+#   [user]
+#       signingkey = /Users/tim/.ssh/id_ed25519_sk.pub
+#   [gpg]
+#       format = ssh
+#   [gpg "ssh"]
+#       allowedSignersFile = /Users/tim/.ssh/allowed_signers
+#   [commit]
+#       gpgsign = true
+#   [tag]
+#       gpgsign = true
+[include]
+	path = ~/.gitconfig_local

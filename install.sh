@@ -38,6 +38,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 filepath_pairs=(
     "zsh/.zshrc:$HOME/.zshrc"
     "git/.gitconfig:$HOME/.gitconfig"
+    "git/.gitignore_global:$HOME/.gitignore_global"
     "oh-my-zsh-custom/aliases.zsh:$HOME/.oh-my-zsh/custom/aliases.zsh"
 )
 

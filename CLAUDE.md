@@ -54,8 +54,13 @@ When making changes that affect either of these, verify the change works on both
 |---|---|---|
 | `zsh/.zshrc` | `~/.zshrc` | Both |
 | `git/.gitconfig` | `~/.gitconfig` | Both |
+| `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
+
+## Machine-local config (untracked)
+
+`~/.gitconfig_local` holds machine-specific git config (signing keys on the MacBook). It is not symlinked by `install.sh` — it must be created manually on each machine. The base `.gitconfig` pulls it in via `[include]`; git silently ignores a missing file, so servers work without it. Setup instructions are in README.
 
 ## Platform guards
 
@@ -82,4 +87,3 @@ Use OS detection rather than hardcoding platform assumptions. Prefer file/comman
 See [GitHub Issues](https://github.com/timgladwell/dotfiles/issues) for the current backlog. Key ones that affect the overall structure:
 - Brewfile (#8) — macOS only
 - OS detection in install.sh (#7) — prerequisite for several others
-- Global gitignore (#10) — reduces noise across all repos on the machine
