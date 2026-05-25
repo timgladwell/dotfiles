@@ -3,7 +3,16 @@
 [user]
 	name = Tim Gladwell
 	email = tim.gladwell@gmail.com
+	signingkey = /Users/tim/.ssh/id_ed25519_sk.pub
 [core]
 	editor = nano
 [credential]
 	helper = cache
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /Users/tim/.ssh/allowed_signers
