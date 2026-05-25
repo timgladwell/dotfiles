@@ -122,3 +122,20 @@ for pair in "${filepath_pairs[@]}"; do
 done
 
 echo -e "${GREEN}Dotfiles installation complete!${NC}"
+
+# Offer Homebrew package install (macOS only — Brewfile contains dev tooling, not appropriate for all machines)
+if $IS_MAC; then
+    if command -v brew &>/dev/null; then
+        echo ""
+        echo -n "Install Homebrew packages from Brewfile? (y/n) "
+        read -r REPLY
+        if [[ $REPLY =~ ^[Yy]$ ]]; then
+            brew bundle --file="$DOTFILES_DIR/Brewfile"
+            echo -e "${GREEN}Homebrew packages installed.${NC}"
+        else
+            echo "  Skipping. Run 'brew bundle --file=$DOTFILES_DIR/Brewfile' manually when ready."
+        fi
+    else
+        echo -e "${YELLOW}Homebrew not found — skipping Brewfile. Install Homebrew first, then run 'brew bundle --file=$DOTFILES_DIR/Brewfile'.${NC}"
+    fi
+fi

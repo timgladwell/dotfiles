@@ -41,6 +41,16 @@ git clone https://github.com/timgladwell/dotfiles.git ~/.dotfiles
 
 ## Manual steps
 
+### MacBook — system defaults
+
+After a clean install, apply preferred macOS system settings (Dock, Finder, hot corners, mouse scrolling):
+
+```sh
+~/.dotfiles/macos/defaults.sh
+```
+
+The script is idempotent and safe to re-run. Log out and back in for scroll direction to take effect.
+
 ### MacBook — git commit signing
 
 Git commit signing is not handled by `install.sh`. After running the installer, create `~/.gitconfig_local`:
@@ -77,3 +87,10 @@ cd ~/.dotfiles && git pull
 | `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
+
+## macOS-only files (not symlinked)
+
+| Path in repo | Purpose |
+|---|---|
+| `Brewfile` | Homebrew packages — install interactively via `install.sh` or run `brew bundle --file=~/.dotfiles/Brewfile` |
+| `macos/defaults.sh` | System defaults — run manually after a clean install |
