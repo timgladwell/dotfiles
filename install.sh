@@ -8,6 +8,14 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+# OS detection
+IS_MAC=false
+IS_LINUX=false
+case "$OSTYPE" in
+  darwin*) IS_MAC=true ;;
+  linux*)  IS_LINUX=true ;;
+esac
+
 # Check if Oh My Zsh is installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo -e "${YELLOW}Oh My Zsh not found. Installing...${NC}"
