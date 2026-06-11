@@ -4,6 +4,7 @@ tap "fluxcd/tap"
 brew "gh"
 brew "git"
 brew "openssh"
+brew "tmux"
 
 # Languages
 brew "go"
@@ -33,6 +34,7 @@ brew "nmap"
 
 # Linting / validation
 brew "yamllint"
+brew "golangci-lint"
 
 # Libraries / build deps (explicitly installed)
 brew "automake"

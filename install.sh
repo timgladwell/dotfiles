@@ -48,6 +48,7 @@ filepath_pairs=(
     "git/.gitconfig:$HOME/.gitconfig"
     "git/.gitignore_global:$HOME/.gitignore_global"
     "oh-my-zsh-custom/aliases.zsh:$HOME/.oh-my-zsh/custom/aliases.zsh"
+    "tmux/.tmux.conf:$HOME/.tmux.conf"
 )
 
 echo "Starting dotfiles symlink installation..."
@@ -125,6 +126,16 @@ echo -e "${GREEN}Dotfiles installation complete!${NC}"
 
 # Offer Homebrew package install (macOS only — Brewfile contains dev tooling, not appropriate for all machines)
 if $IS_MAC; then
+    echo ""
+    echo -n "Set MacOS defaults? (y/n) "
+    read -r REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        "$DOTFILES_DIR/macos/defaults.sh"
+        echo -e "${GREEN}MacOS defaults set.${NC}"
+    else
+        echo "  Skipping. Run '$DOTFILES_DIR/macos/defaults.sh' manually when ready."
+    fi
+
     if command -v brew &>/dev/null; then
         echo ""
         echo -n "Install Homebrew packages from Brewfile? (y/n) "

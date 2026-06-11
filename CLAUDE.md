@@ -56,6 +56,7 @@ When making changes that affect either of these, verify the change works on both
 | `git/.gitconfig` | `~/.gitconfig` | Both |
 | `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
+| `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 
 ## Machine-local config (untracked)
