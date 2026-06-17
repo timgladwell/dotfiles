@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.claude-plugin/marketplace\\.json$"],
+      "matchStrings": [
+        "\"repo\":\\s*\"(?<depName>[^\"]+)\".*?\"ref\":\\s*\"(?<currentValue>[^\"]+)\".*?\"commit\":\\s*\"(?<currentDigest>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ]
+}

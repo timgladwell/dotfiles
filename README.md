@@ -51,6 +51,18 @@ git clone https://github.com/timgladwell/dotfiles.git ~/.dotfiles
 
 The script is idempotent and safe to re-run. Log out and back in for scroll direction to take effect.
 
+### MacBook — Claude Code plugins
+
+Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (or on any machine where Claude Code is installed), register the dotfiles repo as a marketplace source, then install each plugin individually — there is no bulk install:
+
+```sh
+/plugin marketplace add timgladwell/dotfiles
+/plugin install ponytail@personal
+# /plugin install <name>@personal  (repeat for each plugin in marketplace.json)
+```
+
+Plugins are installed at user scope and apply to every Claude Code session on the machine. When Renovate opens a PR bumping a plugin version, merge it and re-run the corresponding `/plugin install` command to pick up the new version.
+
 ### MacBook — git commit signing
 
 Git commit signing is not handled by `install.sh`. After running the installer, create `~/.gitconfig_local`:

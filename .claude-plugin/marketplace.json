@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "personal",
+  "description": "Personal pinned plugins",
+  "owner": {
+    "name": "Tim Gladwell"
+  },
+  "plugins": [
+    {
+      "name": "ponytail",
+      "description": "Lazy senior dev mode for AI agents",
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail",
+        "ref": "v4.7.0",
+        "commit": "adad50d9b393926b2dd5ed7225dcb1848b9df408"
+      }
+    }
+  ]
+}
