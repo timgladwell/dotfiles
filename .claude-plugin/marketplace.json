@@ -12,8 +12,8 @@
       "source": {
         "source": "github",
         "repo": "DietrichGebert/ponytail",
-        "ref": "v4.7.0",
-        "commit": "adad50d9b393926b2dd5ed7225dcb1848b9df408"
+        "ref": "v4.8.3",
+        "commit": "025da371cd7539c3eb0ad859b08b3ca55e695f16"
       }
     }
   ]
