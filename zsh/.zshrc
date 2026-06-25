@@ -10,23 +10,16 @@ source $ZSH/oh-my-zsh.sh
 PROMPT=' 📅 %F{12}$(TZ=UTC date "+%Y-%m-%d %H:%M:%S UTC")%f 🤷 %F{green}%n%f ⚙️ %F{yellow}%m%f 🗂️ %{$fg[cyan]%}%~%{$reset_color%}
 '"$PROMPT"
 
-export PATH="$HOME/.local/bin:$PATH"
-
-if (( $+commands[brew] )); then
-    eval "$(brew shellenv)"
-fi
-
-if (( $+commands[chruby] )); then
-    source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-    source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+if [ -f "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh" ]; then
+    source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh"
+    source "$HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh"
 fi
 
 if (( $+commands[flux] )); then
-    . <(flux completion zsh)
-fi
-
-if (( $+commands[go] )); then
-  export PATH=$PATH:$(go env GOPATH)/bin
+    _flux_comp="${XDG_CACHE_HOME:-$HOME/.cache}/flux_completion.zsh"
+    [[ -f "$_flux_comp" ]] || flux completion zsh >| "$_flux_comp"
+    source "$_flux_comp"
+    unset _flux_comp
 fi
 
 [ -f /etc/rancher/k3s/k3s.yaml ] && export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
