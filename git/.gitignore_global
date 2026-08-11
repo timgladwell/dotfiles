@@ -5,7 +5,17 @@
 ._*
 
 # Tools
-.claude
+# Claude Code: commit shared artifacts, ignore local/generated state
+.claude/*
+!.claude/settings.json
+!.claude/agent-memory/
+!.claude/agents/
+!.claude/commands/
+!.claude/hooks/
+!.claude/output-styles/
+!.claude/rules/
+!.claude/skills/
+!.claude/workflows/
 
 # Editor
 .vscode/
