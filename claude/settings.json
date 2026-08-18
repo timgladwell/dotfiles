@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "defaultMode": "default"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "ponytail@personal": true,
+    "frontend-design@claude-plugins-official": false
+  },
+  "extraKnownMarketplaces": {
+    "personal": {
+      "source": {
+        "source": "github",
+        "repo": "timgladwell/dotfiles"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "dialogExpiry": "never",
+  "tui": "fullscreen",
+  "totalTokensReminder": "padded-countdown",
+  "theme": "dark-daltonized"
+}

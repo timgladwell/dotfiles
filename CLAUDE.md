@@ -58,6 +58,8 @@ When making changes that affect either of these, verify the change works on both
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
+| `claude/settings.json` | `~/.claude/settings.json` | Both |
+| `claude/statusline-command.sh` | `~/.claude/statusline-command.sh` | Both |
 
 ## Machine-local config (untracked)
 

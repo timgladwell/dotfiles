@@ -50,6 +50,8 @@ filepath_pairs=(
     "git/.gitignore_global:$HOME/.gitignore_global"
     "oh-my-zsh-custom/aliases.zsh:$HOME/.oh-my-zsh/custom/aliases.zsh"
     "tmux/.tmux.conf:$HOME/.tmux.conf"
+    "claude/settings.json:$HOME/.claude/settings.json"
+    "claude/statusline-command.sh:$HOME/.claude/statusline-command.sh"
 )
 
 echo "Starting dotfiles symlink installation..."
