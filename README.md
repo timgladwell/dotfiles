@@ -127,6 +127,7 @@ brew bundle check --file=~/.dotfiles/Brewfile --verbose
 | `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
+| `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 
 ## macOS-only files (not symlinked)

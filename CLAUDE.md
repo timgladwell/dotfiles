@@ -60,6 +60,7 @@ When making changes that affect either of these, verify the change works on both
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 | `claude/settings.json` | `~/.claude/settings.json` | Both |
 | `claude/statusline-command.sh` | `~/.claude/statusline-command.sh` | Both |
+| `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
 
 ## Machine-local config (untracked)
 

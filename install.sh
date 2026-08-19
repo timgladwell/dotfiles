@@ -52,6 +52,7 @@ filepath_pairs=(
     "tmux/.tmux.conf:$HOME/.tmux.conf"
     "claude/settings.json:$HOME/.claude/settings.json"
     "claude/statusline-command.sh:$HOME/.claude/statusline-command.sh"
+    "claude/CLAUDE.md:$HOME/.claude/CLAUDE.md"
 )
 
 echo "Starting dotfiles symlink installation..."
