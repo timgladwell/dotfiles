@@ -25,3 +25,10 @@ For a single trailing commit, `git commit --amend -S --no-edit` is simpler.
 
 `yubikey-agent` (Homebrew, PIV applet) is unrelated to this FIDO2 SSH signing
 setup and doesn't help here.
+
+## Terminal color preferences
+
+Red-on-black text is annoying to read via termial. Choose a different colour when
+possible, avoid red except for genuine alarms. Blue/yellow/green read well on
+black, gray is good for low-priority skimmable info, and bright white should be 
+reserved for the one primary metric being tracked.

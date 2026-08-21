@@ -74,7 +74,25 @@ if [ -n "$sd_pct" ] && [ -n "$sd_reset" ]; then
   sd_info=" \033[90m7d: ${sd_pct}%, ${sd_dur}\033[0m"
 fi
 
-printf ' 📅 \033[96m%s UTC\033[0m 🤷 \033[92m%s\033[0m ⚙️ \033[93m%s\033[0m 🚀 \033[95m%s\033[0m 📊%b |%b %b%b' \
+# git line: repo name, worktree path (if not the main worktree), branch
+git_line=""
+if git -C "$cwd" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  toplevel=$(git -C "$cwd" rev-parse --show-toplevel)
+  common_dir=$(git -C "$cwd" rev-parse --git-common-dir)
+  case "$common_dir" in
+    /*) : ;;
+    *) common_dir="${cwd}/${common_dir}" ;;
+  esac
+  main_worktree=$(dirname "$common_dir")
+  repo_name=$(basename "$main_worktree")
+  branch=$(git -C "$cwd" branch --show-current)
+  [ -z "$branch" ] && branch=$(git -C "$cwd" rev-parse --short HEAD 2>/dev/null)
+  wt_info=""
+  [ "$toplevel" != "$main_worktree" ] && wt_info=" | \033[90m${toplevel}\033[0m"
+  git_line=$(printf '\n🗂️ \033[33m%s\033[0m%b 🌿 \033[36m%s\033[0m' "$repo_name" "$wt_info" "$branch")
+fi
+
+printf ' 📅 \033[96m%s UTC\033[0m 🤷 \033[92m%s\033[0m ⚙️ \033[93m%s\033[0m 🚀 \033[95m%s\033[0m 📊%b |%b %b%b%b' \
   "$now_str" \
   "${USER:-$(whoami)}" \
   "$(hostname -s)" \
@@ -82,4 +100,5 @@ printf ' 📅 \033[96m%s UTC\033[0m 🤷 \033[92m%s\033[0m ⚙️ \033[93m%s\033
   "$fh_info" \
   "$sd_info" \
   "$model_details" \
-  "$ctx_info"
+  "$ctx_info" \
+  "$git_line"
