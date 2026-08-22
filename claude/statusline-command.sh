@@ -95,7 +95,7 @@ fi
 printf ' 📅 \033[96m%s UTC\033[0m 🤷 \033[92m%s\033[0m ⚙️ \033[93m%s\033[0m 🚀 \033[95m%s\033[0m 📊%b |%b %b%b%b' \
   "$now_str" \
   "${USER:-$(whoami)}" \
-  "$(hostname -s)" \
+  "$(hostname | cut -d. -f1-3)" \
   "$cwd" \
   "$fh_info" \
   "$sd_info" \
