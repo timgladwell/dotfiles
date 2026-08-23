@@ -32,7 +32,8 @@ resign() {
 	fi
 	echo "Re-signing $depth commit(s) — all of these are rewritten with new hashes:"
 	git --no-pager log --oneline --no-show-signature "HEAD~$depth..HEAD"
-	echo "Touch the YubiKey once per commit — no prompt is shown."
-	# --exec amend is what actually re-signs; `rebase -S` alone can replay without signing.
-	git rebase -f --exec 'git commit --amend --no-edit -S' "HEAD~$depth"
+	echo "Touch the YubiKey once per commit — no prompt is shown, and it times out."
+	echo "If a touch is missed, the rebase stops: run 'git rebase --abort' and retry."
+	# -f forces replay, -S signs each replayed commit: one touch per commit, not two.
+	git rebase -f -S "HEAD~$depth"
 }
