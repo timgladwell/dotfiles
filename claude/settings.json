@@ -22,5 +22,6 @@
   "dialogExpiry": "never",
   "tui": "fullscreen",
   "totalTokensReminder": "padded-countdown",
-  "theme": "dark-daltonized"
+  "theme": "dark-daltonized",
+  "model": "opus"
 }
