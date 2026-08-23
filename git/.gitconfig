@@ -8,6 +8,8 @@
 	excludesfile = ~/.gitignore_global
 [credential]
 	helper = cache
+[log]
+	showSignature = true
 
 # Machine-specific overrides (signing keys, etc.) go in ~/.gitconfig_local (not tracked).
 # Create this file manually on each machine. MacBook example:
