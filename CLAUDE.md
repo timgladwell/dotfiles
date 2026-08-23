@@ -28,6 +28,12 @@ There are two distinct environments these dotfiles need to support. Changes must
 
 Changes are authored and committed on the MacBook, pushed to GitHub, then deployed to servers with `git pull`. Because the repo files are symlinked to their target locations, a `git pull` is all that's needed — the updated files are live immediately with no further steps.
 
+A GitHub ruleset on this repo rejects unsigned commits, so pushing is gated on
+signing. Work is committed unsigned (see the YubiKey policy in the global
+CLAUDE.md), then re-signed in one session with `resign` — a shell function in
+`oh-my-zsh-custom/aliases.zsh`, no arguments, same call on `main` or a branch.
+It refuses to touch commits already pushed, so run it before pushing, not after.
+
 **Strongly prefer changes that deploy via `git pull` alone.** Avoid changes that require a script to be run on each machine (e.g. running `install.sh` again, running `source ~/.zshrc` manually). Adding a brand-new symlinked file is the one exception — it requires a one-time `install.sh` run on each machine — so prefer extending existing tracked files over adding new ones where the choice is neutral.
 
 ## Aliases — long-term goal
