@@ -18,7 +18,7 @@ fi
 
 if (( $+commands[flux] )); then
     _flux_comp="${XDG_CACHE_HOME:-$HOME/.cache}/flux_completion.zsh"
-    [[ -f "$_flux_comp" ]] || flux completion zsh >| "$_flux_comp"
+    [[ -f "$_flux_comp" ]] || { mkdir -p "${_flux_comp:h}" && flux completion zsh >| "$_flux_comp" }
     source "$_flux_comp"
     unset _flux_comp
 fi
