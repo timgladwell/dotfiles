@@ -15,6 +15,16 @@
         "ref": "v4.9.0",
         "commit": "0a4dd63ad4541f4f655c4108a295916f3c1d8fda"
       }
+    },
+    {
+      "name": "prompter",
+      "description": "Rewrites your prompts for clarity before they run",
+      "source": {
+        "source": "github",
+        "repo": "Terryc21/prompter",
+        "ref": "v1.3.0",
+        "commit": "d5e8a4f651dbe96573acfdeba5b61801e918d059"
+      }
     }
   ]
 }
