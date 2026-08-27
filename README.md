@@ -62,9 +62,19 @@ Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (
 # /plugin install <name>@personal  (repeat for each plugin in marketplace.json)
 ```
 
-Plugin sources are pinned as `"source": "url"` with an `https://` clone URL rather than `"source": "github"`. The latter clones over SSH, which on this machine means a YubiKey touch for every plugin install — and a hard failure when the key is not inserted, even though both repos are public.
+Plugins are installed at user scope and apply to every Claude Code session on the machine.
 
-Plugins are installed at user scope and apply to every Claude Code session on the machine. When Renovate opens a PR bumping a plugin version, merge it and re-run the corresponding `/plugin install` command to pick up the new version.
+To pick up a version bump after merging a Renovate PR, refresh the marketplace and then **update** — `install` reports "already installed" and does nothing once a plugin is present:
+
+```sh
+claude plugin marketplace update personal
+claude plugin update ponytail@personal
+claude plugin update prompter@personal
+```
+
+Restart Claude Code afterwards to load the new version.
+
+Plugin sources are pinned as `"source": "url"` with an `https://` clone URL rather than `"source": "github"`. The latter clones over SSH, which on this machine means a YubiKey touch for every plugin install — and a hard failure when the key is not inserted, even though both repos are public.
 
 ### MacBook — Grafana MCP server
 

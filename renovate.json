@@ -27,11 +27,11 @@
         "Merging does not update any machine. The local marketplace clone is a cached checkout and installed plugins are pinned copies, so both steps are needed on **each machine**:",
         "```sh",
         "claude plugin marketplace update personal",
-        "claude plugin install ponytail@personal",
-        "claude plugin install prompter@personal",
+        "claude plugin update ponytail@personal",
+        "claude plugin update prompter@personal",
         "```",
-        "Every plugin is listed so the block can be pasted without working out which one this PR bumped \u2014 reinstalling an unchanged plugin is a no-op.",
-        "`marketplace update` refreshes the catalogue only \u2014 it does not touch anything already installed. Installs default to `--scope user`.",
+        "`claude plugin update` is the command that moves an installed plugin \u2014 `install` reports \"already installed\" and does nothing. Restart Claude Code afterwards to load the new version.",
+        "Every plugin is listed so the block can be pasted without working out which one this PR bumped \u2014 updating an unchanged plugin is a no-op.",
         "Verify with `claude plugin list`; the version shown should match the `ref` in this diff."
       ]
     }
