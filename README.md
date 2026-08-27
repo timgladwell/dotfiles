@@ -63,6 +63,23 @@ Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (
 
 Plugins are installed at user scope and apply to every Claude Code session on the machine. When Renovate opens a PR bumping a plugin version, merge it and re-run the corresponding `/plugin install` command to pick up the new version.
 
+### MacBook — Grafana MCP server
+
+The Grafana MCP server is defined in `claude/mcp-grafana.sh`, which is symlinked to `~/.claude/mcp-grafana.sh` on macOS only. The script reads the service account token from 1Password at launch, so no token is stored in this repo or in `~/.claude.json`.
+
+Create a 1Password item holding the token, then register the server once per machine:
+
+```sh
+op item create --category=password --title='Grafana MCP' --vault=Private \
+    'credential=<grafana service account token>'
+
+claude mcp add --scope user grafana ~/.claude/mcp-grafana.sh
+```
+
+The script defaults to `op://Private/Grafana MCP/credential`. Override with `GRAFANA_TOKEN_REF` (or `GRAFANA_URL`) in the environment if your vault or item name differs.
+
+`~/.claude.json` is Claude Code's mutable state file — session history, per-project data — so it cannot be symlinked into this repo. Registering the server once writes a pointer to the script into it; everything worth tracking lives in the script.
+
 ### MacBook — git commit signing
 
 Git commit signing is not handled by `install.sh`. After running the installer, create `~/.gitconfig_local`:
@@ -128,6 +145,7 @@ brew bundle check --file=~/.dotfiles/Brewfile --verbose
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
+| `claude/mcp-grafana.sh` | `~/.claude/mcp-grafana.sh` | macOS only |
 | `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 
 ## macOS-only files (not symlinked)
