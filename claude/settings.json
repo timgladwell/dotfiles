@@ -2,13 +2,15 @@
   "permissions": {
     "defaultMode": "default"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "ponytail@personal": true,
-    "frontend-design@claude-plugins-official": false
+    "frontend-design@claude-plugins-official": false,
+    "prompter@personal": true
   },
   "extraKnownMarketplaces": {
     "personal": {
@@ -22,6 +24,5 @@
   "dialogExpiry": "never",
   "tui": "fullscreen",
   "totalTokensReminder": "padded-countdown",
-  "theme": "dark-daltonized",
-  "model": "opus"
+  "theme": "dark-daltonized"
 }
