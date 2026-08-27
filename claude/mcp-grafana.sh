@@ -12,7 +12,7 @@
 
 set -eu
 
-GRAFANA_TOKEN_REF="${GRAFANA_TOKEN_REF:-op://Private/Grafana MCP/credential}"
+GRAFANA_TOKEN_REF="${GRAFANA_TOKEN_REF:-op://homelab/Grafana MCP/credential}"
 # Kept under Claude Code's 30s MCP startup budget so the error below wins the
 # race and the caller gets a reason instead of a bare connection timeout.
 GRAFANA_TOKEN_WAIT="${GRAFANA_TOKEN_WAIT:-25}"
