@@ -79,6 +79,8 @@ claude mcp add --scope user grafana ~/.claude/mcp-grafana.sh
 
 The script defaults to `op://Private/Grafana MCP/credential`. Override with `GRAFANA_TOKEN_REF` (or `GRAFANA_URL`) in the environment if your vault or item name differs.
 
+A cold `op` session raises a touch-to-approve prompt on the 1Password desktop app, and the read blocks until it is answered. The script bounds that wait at 25 seconds — inside Claude Code's 30-second MCP startup budget — so an unanswered prompt fails with a message saying so rather than a bare connection timeout. Approve the prompt and reconnect with `/mcp`. Once approved, `op` caches a session and later reads return in under a second. Override the bound with `GRAFANA_TOKEN_WAIT` if 25 seconds is not enough.
+
 `~/.claude.json` is Claude Code's mutable state file — session history, per-project data — so it cannot be symlinked into this repo. Registering the server once writes a pointer to the script into it; everything worth tracking lives in the script.
 
 ### MacBook — git commit signing
