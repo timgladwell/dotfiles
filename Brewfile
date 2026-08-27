@@ -43,6 +43,8 @@ brew "libpq"
 brew "librsvg"
 # YAML Parser
 brew "libyaml"
+# MCP server for Grafana, launched via claude/mcp-grafana.sh
+brew "mcp-grafana"
 # Port scanning utility for large networks
 brew "nmap"
 # Open-source, cross-platform JavaScript runtime environment
@@ -63,6 +65,8 @@ brew "trivy"
 brew "yamllint"
 # Tool for managing your YubiKey configuration
 brew "ykman"
+# Command-line interface for 1Password
+cask "1password-cli"
 # App wrapper for Postgres
 cask "postgres-app"
 vscode "ms-python.debugpy"

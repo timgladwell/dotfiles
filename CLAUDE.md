@@ -69,6 +69,7 @@ When making changes that affect either of these, verify the change works on both
 | `claude/settings.json` | `~/.claude/settings.json` | Both |
 | `claude/statusline-command.sh` | `~/.claude/statusline-command.sh` | Both |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
+| `claude/mcp-grafana.sh` | `~/.claude/mcp-grafana.sh` | macOS only |
 
 ## Machine-local config (untracked)
 

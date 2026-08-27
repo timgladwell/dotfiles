@@ -55,6 +55,12 @@ filepath_pairs=(
     "claude/CLAUDE.md:$HOME/.claude/CLAUDE.md"
 )
 
+# macOS-only symlinks. The Grafana MCP launcher reads its token from 1Password,
+# which the servers do not have.
+if $IS_MAC; then
+    filepath_pairs+=("claude/mcp-grafana.sh:$HOME/.claude/mcp-grafana.sh")
+fi
+
 echo "Starting dotfiles symlink installation..."
 echo "Dotfiles directory: $DOTFILES_DIR"
 echo ""
