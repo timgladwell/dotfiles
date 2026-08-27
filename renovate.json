@@ -6,8 +6,26 @@
       "customType": "regex",
       "managerFilePatterns": ["/^\\.claude-plugin/marketplace\\.json$/"],
       "matchStrings": ["\"repo\":\\s*\"(?<depName>[^\"]+)\"[\\s\\S]*?\"ref\":\\s*\"(?<currentValue>[^\"]+)\"[\\s\\S]*?\"commit\":\\s*\"(?<currentDigest>[^\"]+)\""],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Plugin bumps are not live until each machine refreshes its marketplace clone and reinstalls, so put the commands in the PR body. The install list is maintained by hand — add a line whenever a plugin is added to marketplace.json.",
+      "matchFileNames": [".claude-plugin/marketplace.json"],
+      "prBodyNotes": [
+        "### After merging",
+        "Merging does not update any machine. The local marketplace clone is a cached checkout and installed plugins are pinned copies, so both steps are needed on **each machine**:",
+        "```sh",
+        "claude plugin marketplace update personal",
+        "claude plugin install ponytail@personal",
+        "claude plugin install prompter@personal",
+        "```",
+        "Every plugin is listed so the block can be pasted without working out which one this PR bumped — reinstalling an unchanged plugin is a no-op.",
+        "`marketplace update` refreshes the catalogue only — it does not touch anything already installed. Installs default to `--scope user`.",
+        "Verify with `claude plugin list`; the version shown should match the `ref` in this diff."
+      ]
     }
   ]
 }

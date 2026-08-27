@@ -58,6 +58,7 @@ Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (
 ```sh
 /plugin marketplace add timgladwell/dotfiles
 /plugin install ponytail@personal
+/plugin install prompter@personal
 # /plugin install <name>@personal  (repeat for each plugin in marketplace.json)
 ```
 
