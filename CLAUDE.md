@@ -11,7 +11,7 @@ There are two distinct environments these dotfiles need to support. Changes must
 - Homebrew for package management
 - 1Password desktop app manages SSH agent and key storage
 - Git commit signing via SSH (key: `id_ed25519_sk`) — only here, not on servers
-- Karabiner-Elements for keyboard remapping
+- Karabiner-Elements config is archived in `karabiner/` for possible future use — not installed or in use, so keep it out of install and setup docs
 - kubectl, flux CLI installed locally for inspecting and verifying remote cluster workloads
 - GitHub SSH keys live here only
 
@@ -63,11 +63,11 @@ When making changes that affect either of these, verify the change works on both
 | Path in repo | Symlinks to | Platform |
 |---|---|---|
 | `zsh/.zshrc` | `~/.zshrc` | Both |
+| `zsh/.zprofile` | `~/.zprofile` | Both |
 | `git/.gitconfig` | `~/.gitconfig` | Both |
 | `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
-| `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 | `claude/settings.json` | `~/.claude/settings.json` | Both |
 | `claude/statusline-command.sh` | `~/.claude/statusline-command.sh` | Both |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
@@ -76,6 +76,14 @@ When making changes that affect either of these, verify the change works on both
 ## Machine-local config (untracked)
 
 `~/.gitconfig_local` holds machine-specific git config (signing keys on the MacBook). It is not symlinked by `install.sh` — it must be created manually on each machine. The base `.gitconfig` pulls it in via `[include]`; git silently ignores a missing file, so servers work without it. Setup instructions are in README.
+
+Default to the tracked global config over `~/.gitconfig_local`, even when a
+setting is slightly noisy on servers (e.g. servers printing "No signature") —
+flag the platform downside once. The exception: never put a setting in global
+config that changes output other programs parse. `log.showSignature = true`
+injects lines into `git log --oneline`, which scripts and Claude read, so it
+lives as an interactive alias in `oh-my-zsh-custom/aliases.zsh` instead.
+Signing keys and credential helpers stay machine-local.
 
 ## Platform guards
 

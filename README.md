@@ -157,13 +157,13 @@ brew bundle check --file=~/.dotfiles/Brewfile --verbose
 | Path in repo | Symlinks to | Platform |
 |---|---|---|
 | `zsh/.zshrc` | `~/.zshrc` | Both |
+| `zsh/.zprofile` | `~/.zprofile` | Both |
 | `git/.gitconfig` | `~/.gitconfig` | Both |
 | `git/.gitignore_global` | `~/.gitignore_global` | Both |
 | `oh-my-zsh-custom/aliases.zsh` | `~/.oh-my-zsh/custom/aliases.zsh` | Both |
 | `tmux/.tmux.conf` | `~/.tmux.conf` | Both |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | Both |
 | `claude/mcp-grafana.sh` | `~/.claude/mcp-grafana.sh` | macOS only |
-| `karabiner/karabiner.json` | `~/.config/karabiner/karabiner.json` | macOS only |
 
 ## macOS-only files (not symlinked)
 
@@ -171,3 +171,4 @@ brew bundle check --file=~/.dotfiles/Brewfile --verbose
 |---|---|
 | `Brewfile` | Homebrew packages — install interactively via `install.sh` or run `brew bundle --file=~/.dotfiles/Brewfile` |
 | `macos/defaults.sh` | System defaults — run manually after a clean install |
+| `karabiner/karabiner.json` | Archived Karabiner-Elements config — not installed |

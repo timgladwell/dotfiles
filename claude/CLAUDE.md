@@ -91,3 +91,16 @@ Red-on-black text is annoying to read via termial. Choose a different colour whe
 possible, avoid red except for genuine alarms. Blue/yellow/green read well on
 black, gray is good for low-priority skimmable info, and bright white should be 
 reserved for the one primary metric being tracked.
+
+Blue, yellow and green are low-contrast against each other, so several in one
+line need other colours (e.g. magenta) between them. Red includes diff-style
+red/green output — avoid it there too. When gray info crosses a threshold that
+needs attention (e.g. a quota nearly exhausted), switch it to a brighter or
+different colour rather than leaving it gray.
+
+These are starting points, not a spec. Like most UX, what works was found by
+use and differs from the first guess. The dotfiles statusline
+(`claude/statusline-command.sh`) is the settled example: context-window % is
+bright green, turning red only past 80% as the one genuine alarm; the 5h/7d
+quotas are gray, turning bright yellow past 80%; bright white isn't used. Match what's been
+settled in practice over the rules above.
