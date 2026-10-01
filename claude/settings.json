@@ -10,7 +10,8 @@
   "enabledPlugins": {
     "ponytail@personal": true,
     "frontend-design@claude-plugins-official": false,
-    "prompter@personal": true
+    "prompter@personal": true,
+    "i-have-adhd@personal": true
   },
   "extraKnownMarketplaces": {
     "personal": {
@@ -24,5 +25,8 @@
   "dialogExpiry": "never",
   "tui": "fullscreen",
   "totalTokensReminder": "padded-countdown",
-  "theme": "dark-daltonized"
+  "theme": "dark-daltonized",
+  "agentPushNotifEnabled": true,
+  "inputNeededNotifEnabled": true,
+  "remoteControlAtStartup": true
 }

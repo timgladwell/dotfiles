@@ -59,6 +59,7 @@ Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (
 /plugin marketplace add timgladwell/dotfiles
 /plugin install ponytail@personal
 /plugin install prompter@personal
+/plugin install i-have-adhd@personal
 # /plugin install <name>@personal  (repeat for each plugin in marketplace.json)
 ```
 
@@ -70,6 +71,7 @@ To pick up a version bump after merging a Renovate PR, refresh the marketplace a
 claude plugin marketplace update personal
 claude plugin update ponytail@personal
 claude plugin update prompter@personal
+claude plugin update i-have-adhd@personal
 ```
 
 Restart Claude Code afterwards to load the new version.

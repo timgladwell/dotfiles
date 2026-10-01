@@ -10,10 +10,21 @@
         "/^\\.claude-plugin/marketplace\\.json$/"
       ],
       "matchStrings": [
-        "\"url\":\\s*\"https://github\\.com/(?<depName>[^\"]+?)\\.git\"[\\s\\S]*?\"ref\":\\s*\"(?<currentValue>[^\"]+)\"[\\s\\S]*?\"sha\":\\s*\"(?<currentDigest>[^\"]+)\""
+        "\"url\":\\s*\"https://github\\.com/(?<depName>[^\"]+?)\\.git\"[^}]*?\"ref\":\\s*\"(?<currentValue>v?\\d[^\"]*)\"[^}]*?\"sha\":\\s*\"(?<currentDigest>[^\"]+)\""
       ],
       "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
+    },
+    {
+      "description": "Plugins with no releases track a branch; Renovate bumps only the sha.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.claude-plugin/marketplace\\.json$/"
+      ],
+      "matchStrings": [
+        "\"url\":\\s*\"(?<packageName>https://github\\.com/(?<depName>[^\"]+?)\\.git)\"[^}]*?\"ref\":\\s*\"(?<currentValue>main|master)\"[^}]*?\"sha\":\\s*\"(?<currentDigest>[^\"]+)\""
+      ],
+      "datasourceTemplate": "git-refs"
     }
   ],
   "packageRules": [
@@ -29,6 +40,7 @@
         "claude plugin marketplace update personal",
         "claude plugin update ponytail@personal",
         "claude plugin update prompter@personal",
+        "claude plugin update i-have-adhd@personal",
         "```",
         "`claude plugin update` is the command that moves an installed plugin \u2014 `install` reports \"already installed\" and does nothing. Restart Claude Code afterwards to load the new version.",
         "Every plugin is listed so the block can be pasted without working out which one this PR bumped \u2014 updating an unchanged plugin is a no-op.",
