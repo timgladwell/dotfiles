@@ -22,6 +22,7 @@
     }
   },
   "effortLevel": "medium",
+  "cleanupPeriodDays": 365,
   "dialogExpiry": "never",
   "tui": "fullscreen",
   "totalTokensReminder": "padded-countdown",
