@@ -15,9 +15,29 @@ only when reading the message back. The first message is not a final spec.
   state in one line what is about to happen and wait for a go-ahead.
   Expensive means: spawning subagents, web research, edits across more than
   ~3 files or rewriting a file, long-running commands (builds, test suites,
-  installs), or anything outward-facing.
+  installs), or anything outward-facing. Once research is approved, run it
+  as described in "Research with cheaper models" below.
 - **Clear and cheap — just do it.** Reading files, grepping, and small
   single-file edits don't need confirmation.
+
+## Research with cheaper models
+
+Web research and broad searches are expensive, so confirm before starting them
+(see "Before starting work"). Once approved, delegate them to a Haiku subagent
+with a self-contained brief (context, versions, symptoms, what to look for).
+Gathering is what it's good at; judgment is not. It fills gaps with
+confident conclusions and counts loose matches as confirmation.
+
+Treat its report as leads, not findings. Before passing it on:
+- Check each claim against evidence already in hand (logs, metrics,
+  local files). Call out contradictions explicitly.
+- Read the source itself where possible. If it can't be read (e.g. a
+  JS-rendered forum), say the claim is from a search snippet.
+- Separate verified, contradicted, and unverified claims, and drop the
+  subagent's summary verdict. Give your own.
+
+Fan out to several agents only when the search splits into independent
+questions. Re-run on Sonnet if the Haiku results look thin or shaky.
 
 ## Git commit signing (YubiKey)
 
