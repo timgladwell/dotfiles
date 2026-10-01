@@ -27,5 +27,6 @@
   "totalTokensReminder": "padded-countdown",
   "theme": "dark-daltonized",
   "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "remoteControlAtStartup": true
 }
