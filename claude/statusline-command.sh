@@ -62,16 +62,21 @@ if [ -n "$ctx_pct" ]; then
   ctx_info=" ${ctx_color}💡 ${ctx_pct}%\033[0m"
 fi
 
+# quotas: gray until past 80%, then bright yellow — not red, which ctx owns as the alarm
 fh_info=""
 if [ -n "$fh_pct" ] && [ -n "$fh_reset" ]; then
   fh_dur=$(fmt_duration $((fh_reset - now)))
-  fh_info=" \033[90m5h: ${fh_pct}%, ${fh_dur}\033[0m"
+  fh_color="\033[90m"
+  [ "$fh_pct" -gt 80 ] && fh_color="\033[93m"
+  fh_info=" ${fh_color}5h: ${fh_pct}%, ${fh_dur}\033[0m"
 fi
 
 sd_info=""
 if [ -n "$sd_pct" ] && [ -n "$sd_reset" ]; then
   sd_dur=$(fmt_duration $((sd_reset - now)))
-  sd_info=" \033[90m7d: ${sd_pct}%, ${sd_dur}\033[0m"
+  sd_color="\033[90m"
+  [ "$sd_pct" -gt 80 ] && sd_color="\033[93m"
+  sd_info=" ${sd_color}7d: ${sd_pct}%, ${sd_dur}\033[0m"
 fi
 
 # git line: repo name, worktree path (if not the main worktree), branch
