@@ -15,6 +15,8 @@ alias glgp='git log --show-signature --stat --patch'
 # also re-signs commits an agent already pushed — those need `git push --force-with-lease`
 # afterwards. On the base branch itself it only touches unpushed commits.
 # One YubiKey touch per commit, and no prompt is shown for it.
+# Used in every repo commits are signed in, not just this one — the base-branch
+# path stays even though this repo's main is PR-only.
 resign() {
 	local base branch max
 	base=$(git symbolic-ref --quiet --short refs/remotes/origin/HEAD 2>/dev/null)

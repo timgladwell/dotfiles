@@ -77,6 +77,14 @@ now, and are expected to change continuously as the repo does.
 comments are indistinguishable from theirs. Prefix every GitHub comment and
 review reply with: `🤖 *Posted by Claude via @<user>'s account.*`
 
+## Where details live: source control, not memory
+
+Memory files are invisible to the user and not version-controlled. Never use
+them to hold technical detail — how code behaves, why it's built that way,
+verified gotchas. Put it where it's reviewable instead: a code comment for
+anything a few lines long, a markdown doc for anything longer. Memory is only
+for preferences about how to work.
+
 ## Terminal color preferences
 
 Red-on-black text is annoying to read via termial. Choose a different colour when
