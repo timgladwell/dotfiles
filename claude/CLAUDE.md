@@ -1,5 +1,44 @@
 # Global instructions (all projects)
 
+## Before starting work
+
+The user often starts typing before they've finished thinking, and spots gaps
+only when reading the message back. The first message is not a final spec.
+
+- **Ambiguous — ask first, and don't explore yet.** If a request is ambiguous,
+  ask one clarifying question before doing anything, including reading files:
+  the one whose answer most changes the work, not a list. If reading or
+  exploring would help answer it, say so in the same message. The user will
+  either say "go look" or rewrite the request. If the user says "explore
+  first" up front, skip straight to exploring.
+- **Clear but expensive — confirm first.** If the next step is expensive,
+  state in one line what is about to happen and wait for a go-ahead.
+  Expensive means: spawning subagents, web research, edits across more than
+  ~3 files or rewriting a file, long-running commands (builds, test suites,
+  installs), or anything outward-facing. Once research is approved, run it
+  as described in "Research with cheaper models" below.
+- **Clear and cheap — just do it.** Reading files, grepping, and small
+  single-file edits don't need confirmation.
+
+## Research with cheaper models
+
+Web research and broad searches are expensive, so confirm before starting them
+(see "Before starting work"). Once approved, delegate them to a Haiku subagent
+with a self-contained brief (context, versions, symptoms, what to look for).
+Gathering is what it's good at; judgment is not. It fills gaps with
+confident conclusions and counts loose matches as confirmation.
+
+Treat its report as leads, not findings. Before passing it on:
+- Check each claim against evidence already in hand (logs, metrics,
+  local files). Call out contradictions explicitly.
+- Read the source itself where possible. If it can't be read (e.g. a
+  JS-rendered forum), say the claim is from a search snippet.
+- Separate verified, contradicted, and unverified claims, and drop the
+  subagent's summary verdict. Give your own.
+
+Fan out to several agents only when the search splits into independent
+questions. Re-run on Sonnet if the Haiku results look thin or shaky.
+
 ## Git commit signing (YubiKey)
 
 Commits are signed via YubiKey touch. There is no visible "touch now" prompt on
