@@ -26,15 +26,17 @@ There are two distinct environments these dotfiles need to support. Changes must
 
 ## Deployment model
 
-Changes are authored and committed on the MacBook, pushed to GitHub, then deployed to servers with `git pull`. Because the repo files are symlinked to their target locations, a `git pull` is all that's needed — the updated files are live immediately with no further steps.
+Changes are authored and committed on the MacBook, merged to `main` via pull request, then deployed to servers with `git pull`. Because the repo files are symlinked to their target locations, a `git pull` is all that's needed — the updated files are live immediately with no further steps.
 
-A GitHub ruleset on this repo rejects unsigned commits, so pushing is gated on
-signing. Work is committed unsigned (see the YubiKey policy in the global
-CLAUDE.md), then re-signed in one session with `resign` — a shell function in
-`oh-my-zsh-custom/aliases.zsh`, no arguments, same call on `main` or a branch.
-On a feature branch it re-signs the whole branch, including commits already pushed
-(force-push after). On `main` it only touches unpushed commits, so published history
-is never rewritten.
+A GitHub ruleset on `main` requires a pull request (merge commits only), signed
+commits, and blocks force-pushes and deletion, with no bypass. Never commit
+directly on `main` — work on a feature branch and open a PR.
+
+Work is committed unsigned (see the YubiKey policy in the global CLAUDE.md),
+then re-signed in one session with `resign` — a shell function in
+`oh-my-zsh-custom/aliases.zsh`, no arguments. It rewrites the branch from its
+oldest unsigned commit up, including commits already pushed (force-push the
+branch after).
 
 **Strongly prefer changes that deploy via `git pull` alone.** Avoid changes that require a script to be run on each machine (e.g. running `install.sh` again, running `source ~/.zshrc` manually). Adding a brand-new symlinked file is the one exception — it requires a one-time `install.sh` run on each machine — so prefer extending existing tracked files over adding new ones where the choice is neutral.
 
