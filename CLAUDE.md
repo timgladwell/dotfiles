@@ -97,6 +97,15 @@ Use OS detection rather than hardcoding platform assumptions. Prefer file/comman
 - `~/.ssh/config` symlink target must be `chmod 600` after creation
 - Review any new file added to `ssh/` before committing to ensure it contains no embedded secrets
 
+## README vs CLAUDE.md
+
+- **README.md**: manual steps a human follows on a machine — e.g. creating
+  `~/.gitconfig_local`, installing plugins.
+- **CLAUDE.md**: architecture, patterns, and the decisions behind them — what
+  informs future changes, e.g. why `~/.gitconfig_local` exists.
+
+A change that adds a manual step goes in README; one that sets a pattern goes here.
+
 ## Open issues
 
 See [GitHub Issues](https://github.com/timgladwell/dotfiles/issues) for the current backlog. Key ones that affect the overall structure:
