@@ -8,7 +8,14 @@ There are two distinct environments these dotfiles need to support. Changes must
 
 **MacBook (primary dev machine)**
 - macOS, GUI apps, full toolchain
-- Homebrew for package management
+- Intel (x86_64)
+- Homebrew for package management, kept until this machine is replaced.
+  Homebrew dropped Intel to Tier 3 in September 2026: no bottles, so every
+  formula builds from source, and an upgrade that touches `llvm` or `rust` can
+  take about a day. Never run `brew upgrade` or `brew bundle install`
+  unprompted; flag when a change needs one. The `Brewfile` is
+  architecture-neutral, so it carries over unchanged to an Apple Silicon
+  replacement.
 - 1Password desktop app manages SSH agent and key storage
 - Git commit signing via SSH (key: `id_ed25519_sk`) — only here, not on servers
 - Karabiner-Elements config is archived in `karabiner/` for possible future use — not installed or in use, so keep it out of install and setup docs
@@ -114,8 +121,7 @@ Use OS detection rather than hardcoding platform assumptions. Prefer file/comman
 
 A change that adds a manual step goes in README; one that sets a pattern goes here.
 
-## Open issues
-
-See [GitHub Issues](https://github.com/timgladwell/dotfiles/issues) for the current backlog. Key ones that affect the overall structure:
-- Brewfile (#8) — macOS only
-- OS detection in install.sh (#7) — prerequisite for several others
+Project tracking — the backlog, open issues, what's next — lives in
+[GitHub Issues](https://github.com/timgladwell/dotfiles/issues), not here.
+CLAUDE.md holds what's needed to work in the repo, and goes stale if it
+tracks issue state.
