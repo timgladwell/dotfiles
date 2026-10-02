@@ -1,14 +1,26 @@
 tap "fluxcd/tap"
+tap "grafana/grafana"
+tap "home-operations/tap"
 # Simple, modern, secure file encryption
 brew "age"
+# Vendor-agnostic OpenTelemetry Collector distribution with programmable pipelines
+brew "grafana/grafana/alloy"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Parser generator
 brew "bison"
 # Ruby environment tool
 brew "chruby"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # Test your configuration files using Open Policy Agent
 brew "conftest"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# Isolated development environments using Docker
+brew "docker-compose"
+# Flux CLI
+brew "fluxcd/tap/flux"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # General-purpose data compression with high compression ratio
@@ -37,8 +49,6 @@ brew "kubernetes-cli"
 brew "kustomize"
 # Portable Foreign Function Interface library
 brew "libffi"
-# Postgres C API library
-brew "libpq"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # YAML Parser
@@ -67,14 +77,17 @@ brew "yamllint"
 brew "ykman"
 # Command-line interface for 1Password
 cask "1password-cli"
-# App wrapper for Postgres
-cask "postgres-app"
+# Render and diff Flux GitOps repositories offline, without a cluster
+cask "home-operations/tap/flate"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode-remote.remote-containers"
 vscode "shopify.ruby-lsp"
 go "github.com/go-delve/delve/cmd/dlv"
 go "golang.org/x/lint/golint"
 go "golang.org/x/tools/gopls"
+npm "@devcontainers/cli"
 npm "yarn"
