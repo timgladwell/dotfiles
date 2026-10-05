@@ -12,8 +12,8 @@
       "source": {
         "source": "url",
         "url": "https://github.com/DietrichGebert/ponytail.git",
-        "ref": "v4.10.0",
-        "sha": "1d95ff7d39de12d87014ea40d4e22201bddc501b"
+        "ref": "v4.13.0",
+        "sha": "08e952d7a8057a57ce561ff1330d093fd92eec67"
       }
     },
     {
