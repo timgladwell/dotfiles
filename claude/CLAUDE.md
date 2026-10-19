@@ -93,6 +93,10 @@ code shipped, decision made, discussion split into other issues.
   work. Surface both and let the user sort them.
 - Capture enough detail that the research does not have to be redone, including
   premises that turned out to be wrong.
+- **A past issue's conclusion is a snapshot, not settled fact.** New
+  information, new capabilities or more skill can overturn it. Cite it as "#N
+  concluded X, on the premise Y" and check whether Y still holds, and whether Y
+  was a constraint or only a choice. Never write "#N established X".
 
 **Reference docs (`docs/*.md`) — current state, and why it is that way.**
 Runbooks and config references have no end date. They describe how things are
