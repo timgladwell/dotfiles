@@ -110,6 +110,10 @@ now, and are expected to change continuously as the repo does.
 - Describe what is true now. Do not write intent as though it were current
   state — and when reality changes, update the doc rather than leaving stale
   intent behind.
+- **A setting missing from the record is unknown, not the vendor's default.**
+  When a doc or config export doesn't cover something, say it's unknown. Then
+  extend the record (the export script, the doc) to capture it, rather than
+  reasoning from what the default would be.
 - Add a change table (`| Date | Change |`) only where it captures something
   meaningful that would otherwise be lost or non-obvious from `git blame` —
   typically config held outside the repo, which drifts silently. Most docs do
