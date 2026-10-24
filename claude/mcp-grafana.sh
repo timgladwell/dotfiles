@@ -46,4 +46,5 @@ export GRAFANA_SERVICE_ACCOUNT_TOKEN
 export GRAFANA_URL="${GRAFANA_URL:-https://grafana.akron.internal.zerpzorp.com}"
 
 # ponytail: -disable-write keeps this read-only; drop it only with a token scoped to match.
-exec mcp-grafana -disable-write
+# v2.0.0 turned anonymous usage reporting to Grafana Labs on by default; keep it off.
+exec mcp-grafana -disable-write -usage-stats=disabled
