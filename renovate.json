@@ -25,6 +25,18 @@
         "\"url\":\\s*\"(?<packageName>https://github\\.com/(?<depName>[^\"]+?)\\.git)\"[^}]*?\"ref\":\\s*\"(?<currentValue>main|master)\"[^}]*?\"sha\":\\s*\"(?<currentDigest>[^\"]+)\""
       ],
       "datasourceTemplate": "git-refs"
+    },
+    {
+      "description": "Monorepo plugins whose tags carry a component prefix (impeccable: skill-vX.Y.Z); regex versioning keeps only that component's tags.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.claude-plugin/marketplace\\.json$/"
+      ],
+      "matchStrings": [
+        "\"url\":\\s*\"https://github\\.com/(?<depName>[^\"]+?)\\.git\"[^}]*?\"ref\":\\s*\"(?<currentValue>skill-v\\d[^\"]*)\"[^}]*?\"sha\":\\s*\"(?<currentDigest>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "regex:^skill-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     }
   ],
   "packageRules": [
@@ -41,6 +53,7 @@
         "claude plugin update ponytail@personal",
         "claude plugin update prompter@personal",
         "claude plugin update i-have-adhd@personal",
+        "claude plugin update impeccable@personal",
         "```",
         "`claude plugin update` is the command that moves an installed plugin \u2014 `install` reports \"already installed\" and does nothing. Restart Claude Code afterwards to load the new version.",
         "Every plugin is listed so the block can be pasted without working out which one this PR bumped \u2014 updating an unchanged plugin is a no-op.",
