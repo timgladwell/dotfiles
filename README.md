@@ -60,10 +60,11 @@ Plugin configuration lives in `.claude-plugin/marketplace.json`. After cloning (
 /plugin install ponytail@personal
 /plugin install prompter@personal
 /plugin install i-have-adhd@personal
+/plugin install impeccable@personal
 # /plugin install <name>@personal  (repeat for each plugin in marketplace.json)
 ```
 
-Plugins are installed at user scope and apply to every Claude Code session on the machine.
+Plugins are installed at user scope and apply to every Claude Code session on the machine. `impeccable` is the exception: `claude/settings.json` sets it to `false`, so it is installed but off. Turn it on for UX work with `/plugin enable impeccable@personal` (and `/plugin disable` after). Off by default because it is only needed occasionally and its hooks run on every Edit/Write and Stop.
 
 To pick up a version bump after merging a Renovate PR, refresh the marketplace and then **update** — `install` reports "already installed" and does nothing once a plugin is present:
 
@@ -72,6 +73,7 @@ claude plugin marketplace update personal
 claude plugin update ponytail@personal
 claude plugin update prompter@personal
 claude plugin update i-have-adhd@personal
+claude plugin update impeccable@personal
 ```
 
 Restart Claude Code afterwards to load the new version.

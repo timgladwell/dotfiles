@@ -35,6 +35,17 @@
         "ref": "v1.3.0",
         "sha": "d5e8a4f651dbe96573acfdeba5b61801e918d059"
       }
+    },
+    {
+      "name": "impeccable",
+      "description": "Frontend design skill: /impeccable polish, audit, critique, etc. Installed but disabled by default; enable for UX work.",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/pbakaus/impeccable.git",
+        "path": "plugin",
+        "ref": "skill-v4.8.0",
+        "sha": "414603bf14c7a344edb466bb1f85690c77ce8b7d"
+      }
     }
   ]
 }
