@@ -104,8 +104,11 @@ now, and are expected to change continuously as the repo does.
 - **A reference doc is never where a change is captured.** If something should
   change, it becomes an issue — that is the queue. A "should change" recorded
   only in a doc is one that gets forgotten.
-- Referencing future state is fine and often necessary. Link the issue that owns
-  it. The doc points at the issue; it never holds the work itself.
+- A doc may name a gap or risk that exists now and link the issue tracking it
+  ("nothing alerts if the renewal fails (#192)"). It doesn't mention work that
+  might happen someday: exploratory issues and ideas say nothing about the
+  current state, and only go stale. The doc points at the issue; it never holds
+  the work itself.
 - No "Action items", "TODO", or "Next steps" sections. Those are issues.
 - Describe what is true now. Do not write intent as though it were current
   state — and when reality changes, update the doc rather than leaving stale
