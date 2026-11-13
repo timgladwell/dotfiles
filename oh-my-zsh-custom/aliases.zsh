@@ -59,3 +59,12 @@ resign() {
 		echo "Remote has the old commits — push with: git push --force-with-lease"
 	fi
 }
+
+# --- homebrew ----------------------------------------------------------------
+# Intel Macs build every formula from source (no bottles), and a big build can
+# take hours: -i blocks idle sleep, -s blocks system sleep while on AC power.
+# Core cap is HOMEBREW_MAKE_JOBS in .zprofile.
+if (( $+commands[caffeinate] )); then
+	# caffeinate execs the brew binary from PATH, so this never recurses.
+	brew() { caffeinate -is brew "$@"; }
+fi
