@@ -32,8 +32,8 @@
       "source": {
         "source": "url",
         "url": "https://github.com/Terryc21/prompter.git",
-        "ref": "v1.3.0",
-        "sha": "d5e8a4f651dbe96573acfdeba5b61801e918d059"
+        "ref": "v1.4.0",
+        "sha": "c9a4b69bafc0c65b33c13e3f0df8dfcc24146a6b"
       }
     },
     {
